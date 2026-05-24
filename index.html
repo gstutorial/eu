@@ -1,14 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Union Organization</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Circulars & PDFs · NF Railway Employees' Union</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fb;
+      color: #1b1b1b;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    :root {
+      --primary-blue: #001f5b;
+      --accent-red: #d62828;
+      --background: #f5f7fb;
+      --white: #ffffff;
+      --dark-text: #1b1b1b;
+      --border-light: #e5e7eb;
+      --card-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+      --card-hover-shadow: 0 20px 30px -10px rgba(0,31,91,0.08), 0 10px 15px -5px rgba(0,0,0,0.03);
+      --transition: all 0.25s ease;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+    .card:hover {
+      box-shadow: var(--card-hover-shadow);
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 22px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      background: transparent;
+      color: #1b1b1b;
+    }
+    .btn-primary { background: var(--accent-red); color: white; }
+    .btn-secondary { background: var(--primary-blue); color: white; }
+    .btn-outline { border: 1.5px solid var(--primary-blue); color: var(--primary-blue); }
+
+    /* Header */
+    .top-bar {
+      background: #001f5b;
+      color: white;
+      font-size: 0.8rem;
+      padding: 8px 0;
+    }
+    .top-bar .container { display: flex; justify-content: space-between; }
+    .main-header {
+      background: white;
+      padding: 16px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .logo-area { display: flex; align-items: center; gap: 16px; }
+    .logo-img { height: 56px; }
+    .nav-bar { background: white; border-bottom: 1px solid #e5e7eb; }
+    .desktop-nav { display: flex; list-style: none; gap: 8px; }
+    .desktop-nav a { padding: 16px 14px; color: #1b1b1b; text-decoration: none; font-weight: 600; }
+    .desktop-nav a:hover { color: #d62828; }
+
+    /* PDF Dashboard Layout */
+    .pdf-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      margin: 32px 0;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .search-input {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: 40px;
+      border: 1px solid #e5e7eb;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .category-list {
+      list-style: none;
+    }
+    .category-list li {
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .category-list li:hover, .category-list li.active {
+      background: #001f5b;
+      color: white;
+    }
+
+    .document-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .doc-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid #e5e7eb;
+    }
+    .pdf-icon {
+      font-size: 2.5rem;
+      color: #d62828;
+    }
+
+    .trending-section {
+      margin-top: 40px;
+    }
+
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      justify-content: space-around;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    @media (max-width: 1024px) {
+      .pdf-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .document-grid { grid-template-columns: 1fr; }
+      .desktop-nav { display: none; }
+      .mobile-bottom-nav { display: flex; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to the Union Website</h1>
-    <p>Site is currently under construction.</p>
-    <a href="/admin/">Go to Admin Login</a>
+  <!-- HEADER -->
+  <div class="top-bar">
+    <div class="container">
+      <span>✊ Unity • Solidarity • Strength</span>
+      <div><a href="#" style="color:white;"><i class="fas fa-envelope"></i> help@nfreu.org</a></div>
+    </div>
+  </div>
+  <div class="main-header">
+    <div class="container">
+      <div class="logo-area">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23001f5b'/%3E%3Cpath d='M50 15 L65 40 L90 45 L70 62 L75 88 L50 75 L25 88 L30 62 L10 45 L35 40 Z' fill='%23d62828'/%3E%3Ctext x='50' y='58' text-anchor='middle' fill='white' font-size='20'%3ENFR%3C/text%3E%3C/svg%3E" class="logo-img" alt="logo">
+        <div class="title-text"><h1>NF Railway Employees' Union</h1><small>Circulars & Document Centre</small></div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="container">
+      <ul class="desktop-nav">
+        <li><a href="#">Home</a></li><li><a href="#">News</a></li><li><a href="#" style="color:#d62828;">Circulars</a></li><li><a href="#">Gallery</a></li><li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div style="padding: 16px 0; color: #6b7280;"><i class="fas fa-home"></i> / Circulars & PDFs</div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Search circulars, orders, PDFs...">
+      <button class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+    </div>
+
+    <div class="pdf-layout">
+      <!-- Sidebar Categories -->
+      <aside>
+        <div class="card">
+          <h3 style="margin-bottom:16px;">Categories</h3>
+          <ul class="category-list">
+            <li class="active"><i class="fas fa-file-alt"></i> All Documents</li>
+            <li><i class="fas fa-arrow-up"></i> Promotions</li>
+            <li><i class="fas fa-exchange-alt"></i> Transfers</li>
+            <li><i class="fas fa-piggy-bank"></i> Pension</li>
+            <li><i class="fas fa-shield-alt"></i> Safety</li>
+            <li><i class="fas fa-scroll"></i> Circulars</li>
+            <li><i class="fas fa-gavel"></i> Orders</li>
+            <li><i class="fas fa-briefcase"></i> Recruitment</li>
+            <li><i class="fas fa-hospital"></i> Medical</li>
+            <li><i class="fas fa-coins"></i> Finance</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Document Grid -->
+      <div>
+        <div class="document-grid">
+          <div class="doc-card">
+            <i class="fas fa-file-pdf pdf-icon"></i>
+            <div style="flex:1;">
+              <strong>Promotion Seniority List 2026</strong><br>
+              <small>15 May 2026 · 2.4 MB</small>
+            </div>
+            <button class="btn btn-outline"><i class="fas fa-download"></i></button>
+          </div>
+          <div class="doc-card">
+            <i class="fas fa-file-pdf pdf-icon"></i>
+            <div><strong>Transfer Order – NFR Zone</strong><br><small>12 May 2026 · 1.1 MB</small></div>
+            <button class="btn btn-outline"><i class="fas fa-download"></i></button>
+          </div>
+          <div class="doc-card">
+            <i class="fas fa-file-pdf pdf-icon"></i>
+            <div><strong>Pension Revision Circular 45</strong><br><small>10 May 2026 · 3.2 MB</small></div>
+            <button class="btn btn-outline"><i class="fas fa-download"></i></button>
+          </div>
+          <div class="doc-card">
+            <i class="fas fa-file-pdf pdf-icon"></i>
+            <div><strong>Safety Bulletin – Monsoon</strong><br><small>08 May 2026 · 890 KB</small></div>
+            <button class="btn btn-outline"><i class="fas fa-download"></i></button>
+          </div>
+          <div class="doc-card">
+            <i class="fas fa-file-pdf pdf-icon"></i>
+            <div><strong>Recruitment Notification 02/2026</strong><br><small>05 May 2026 · 1.8 MB</small></div>
+            <button class="btn btn-outline"><i class="fas fa-download"></i></button>
+          </div>
+          <div class="doc-card">
+            <i class="fas fa-file-pdf pdf-icon"></i>
+            <div><strong>Medical Scheme Empanelment</strong><br><small>01 May 2026 · 2.0 MB</small></div>
+            <button class="btn btn-outline"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+
+        <!-- Trending Circulars -->
+        <div class="trending-section">
+          <h2 style="margin-bottom:20px;">📈 Trending Circulars</h2>
+          <div class="document-grid">
+            <div class="doc-card">
+              <i class="fas fa-file-pdf pdf-icon"></i>
+              <div><strong>DA Hike Order RBE 12/2026</strong><br><small>20 May 2026 · 1.5 MB</small></div>
+              <button class="btn btn-primary"><i class="fas fa-download"></i></button>
+            </div>
+            <div class="doc-card">
+              <i class="fas fa-file-pdf pdf-icon"></i>
+              <div><strong>Leave Rules Amendment</strong><br><small>18 May 2026 · 950 KB</small></div>
+              <button class="btn btn-primary"><i class="fas fa-download"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="mobile-bottom-nav">
+    <a href="#"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#"><i class="fas fa-newspaper"></i><span>News</span></a>
+    <a href="#" class="active"><i class="fas fa-file-pdf"></i><span>PDFs</span></a>
+    <a href="#"><i class="fas fa-images"></i><span>Gallery</span></a>
+    <a href="#"><i class="fas fa-ellipsis-h"></i><span>More</span></a>
+  </div>
 </body>
 </html>
