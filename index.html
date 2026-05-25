@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>NF Railway Employee Union | Official Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NF Railway Employee Union | Official Portal</title>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -21,306 +21,344 @@
             line-height: 1.5;
         }
 
-        /* container utility */
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding-left: 24px;
-            padding-right: 24px;
+            padding: 0 24px;
         }
 
-        /* full width sections */
         .full-width {
             width: 100%;
         }
 
-        /* sticky nav */
+        /* Cards */
+        .card, .stat-card, .news-card, .doc-card, .achievement-card, .quick-card, .link-card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover, .stat-card:hover, .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sticky Navigation */
         .sticky-nav {
             position: sticky;
             top: 0;
             z-index: 1000;
             background: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
         }
 
-        /* buttons & links */
-        a {
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        /* cards base */
-        .card, .dashboard-card, .stat-card, .news-card, .doc-card, .achievement-card, .gallery-card, .link-card {
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 5px 10px -5px rgba(0,0,0,0.02);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card:hover, .dashboard-card:hover, .stat-card:hover, .news-card:hover, .doc-card:hover, .achievement-card:hover, .gallery-card:hover, .link-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
-        }
-
-        /* ---- TOP INFO BAR ---- */
-        .top-bar {
-            background-color: #001f5b;
-            color: #f0f2f5;
+        /* Top Info Bar */
+        .top-info-bar {
+            background: #001f5b;
+            color: #e2e8f0;
             font-size: 0.75rem;
             padding: 8px 0;
             font-weight: 500;
         }
-        .top-bar .container {
+
+        .top-info-bar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
+
         .top-left span {
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
+
         .top-right a, .top-right span {
-            color: #f5f7fb;
+            color: #e2e8f0;
             margin-left: 20px;
             font-size: 0.75rem;
         }
+
         .top-right i {
             margin-right: 6px;
         }
+
         .social-icons a {
             margin-left: 12px;
             font-size: 0.8rem;
         }
+
         .social-icons a:hover {
             color: #d62828;
         }
 
-        /* ---- MAIN HEADER ---- */
+        /* Main Header */
         .main-header {
             background: white;
             padding: 20px 0;
+            border-bottom: 1px solid #eef2f6;
         }
-        .header-flex {
+
+        .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
         }
-        .logo-area {
+
+        .logo-section {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
         }
-        .union-icon {
-            width: 60px;
-            height: 60px;
+
+        .logo-icon {
+            width: 65px;
+            height: 65px;
             background: #001f5b;
-            border-radius: 30px;
+            border-radius: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
             color: white;
         }
-        .title-text h1 {
-            font-size: 1.7rem;
+
+        .union-title h1 {
+            font-size: 1.6rem;
             font-weight: 700;
             color: #001f5b;
             line-height: 1.2;
         }
-        .title-text p {
-            font-size: 0.85rem;
-            color: #4a5568;
+
+        .union-title p {
+            font-size: 0.8rem;
+            color: #5a6874;
             font-weight: 500;
         }
-        .railway-banner {
-            background: linear-gradient(135deg, #eef2ff, #ffffff);
+
+        .railway-badge {
+            background: linear-gradient(135deg, #fef3e2, #fff5e6);
             padding: 8px 24px;
-            border-radius: 50px;
+            border-radius: 40px;
             font-weight: 600;
             color: #001f5b;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-        .railway-banner i {
-            font-size: 1.8rem;
-            color: #d62828;
+            border: 1px solid #ffe0b5;
         }
 
-        /* ---- NAVIGATION (DESKTOP) ---- */
-        .nav-desktop {
+        /* Navigation Menu */
+        .nav-menu-wrapper {
             background: white;
             border-top: 1px solid #edf2f7;
             border-bottom: 1px solid #edf2f7;
         }
+
         .nav-menu {
             display: flex;
             flex-wrap: wrap;
             list-style: none;
-            gap: 8px;
-            padding: 12px 0;
+            gap: 4px;
+            padding: 10px 0;
         }
+
         .nav-menu li a {
-            padding: 10px 18px;
+            padding: 10px 20px;
             font-weight: 600;
-            font-size: 0.9rem;
-            color: #1e293b;
-            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #1e2a3e;
+            border-radius: 30px;
             transition: all 0.2s;
         }
-        .nav-menu li a:hover, .nav-menu li a.active {
+
+        .nav-menu li a:hover {
             background: #001f5b;
             color: white;
         }
-        /* mobile hamburger */
+
+        /* Mobile elements */
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
-            padding: 10px;
+            padding: 8px;
         }
-        .mobile-nav {
+
+        .mobile-nav-panel {
             display: none;
             background: white;
             flex-direction: column;
             padding: 16px 24px;
-            border-top: 1px solid #e2e8f0;
-        }
-        .mobile-nav a {
-            padding: 14px 0;
-            font-weight: 600;
-            border-bottom: 1px solid #f0f2f5;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        /* HERO DASHBOARD SECTION (3 columns) */
-        .hero-section {
-            padding: 60px 0 40px;
+        /* Hero Section - 3 column as in image */
+        .hero-dashboard {
+            padding: 50px 0 40px;
         }
-        .hero-grid {
+
+        .three-col-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr 1fr;
             gap: 28px;
         }
-        .left-hero-card {
+
+        /* Left Panel - Dark Blue Card */
+        .welcome-card {
             background: #001f5b;
             border-radius: 24px;
-            padding: 40px 28px;
+            padding: 40px 30px;
             color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            min-height: 450px;
         }
-        .left-hero-card h2 {
-            font-size: 2rem;
+
+        .welcome-card h2 {
+            font-size: 1.9rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+            line-height: 1.3;
         }
-        .left-hero-card p {
+
+        .welcome-card p {
             opacity: 0.85;
             margin-bottom: 32px;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
+
         .btn-red {
             background: #d62828;
-            padding: 14px 28px;
+            padding: 14px 32px;
             border-radius: 40px;
             color: white;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             width: fit-content;
+            border: none;
+            cursor: pointer;
             transition: 0.2s;
+            font-size: 0.9rem;
         }
+
         .btn-red:hover {
             background: #b11f1f;
             transform: scale(1.02);
         }
-        .center-hero {
+
+        /* Center Panel - Image Slider */
+        .hero-image-card {
             border-radius: 24px;
             overflow: hidden;
             position: relative;
-            background: #cbd5e1;
-            min-height: 450px;
-            background-image: url('https://placehold.co/800x600/e2e8f0/1e293b?text=Railway+Employees+Union');
+            background-image: url('https://placehold.co/800x550/1e3a5f/ffffff?text=NF+Railway+Employees');
             background-size: cover;
             background-position: center;
+            min-height: 450px;
             display: flex;
             align-items: flex-end;
         }
-        .center-overlay {
-            background: linear-gradient(0deg, #001f5bbb, transparent);
-            padding: 24px;
+
+        .image-overlay-text {
+            background: linear-gradient(0deg, rgba(0,31,91,0.85), transparent);
             width: 100%;
+            padding: 30px 24px;
             color: white;
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 1.4rem;
         }
-        .right-quick-cards {
+
+        /* Right Panel - Quick Access Dashboard Cards (vertical) */
+        .quick-access-stack {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
-        .quick-card-item {
+
+        .quick-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 18px;
             padding: 16px 20px;
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
             font-weight: 600;
+            border: 1px solid #eef2f8;
             transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-            border: 1px solid #edf2f7;
         }
-        .quick-card-item i {
+
+        .quick-card i:first-child {
             font-size: 28px;
             color: #001f5b;
             width: 40px;
         }
-        .quick-card-item span {
+
+        .quick-card span {
             flex: 1;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            color: #1e2a3e;
         }
 
-        /* stats section */
-        .stats-section {
-            padding: 40px 0;
+        .quick-card i:last-child {
+            color: #94a3b8;
+            font-size: 14px;
         }
+
+        .quick-card:hover {
+            background: #f8fafc;
+            border-color: #d62828;
+            transform: translateX(4px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 30px 0;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 28px;
         }
+
         .stat-card {
             text-align: center;
             padding: 30px 20px;
         }
+
         .stat-number {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 800;
             color: #001f5b;
         }
+
         .stat-label {
             color: #4a5568;
             font-weight: 500;
             margin-top: 8px;
         }
+
         .stat-icon {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #d62828;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        /* section header */
+        /* Section Header */
         .section-header {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
+
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 700;
             color: #001f5b;
             display: inline-block;
@@ -328,85 +366,123 @@
             padding-bottom: 8px;
         }
 
-        /* news grid */
+        /* News Grid */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 28px;
         }
+
         .news-card {
             overflow: hidden;
             border-radius: 20px;
         }
+
         .news-img {
             height: 200px;
-            background: #cbd5e1;
             background-size: cover;
+            background-position: center;
         }
+
         .news-content {
             padding: 22px;
         }
+
         .news-date {
             color: #d62828;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.7rem;
+            font-weight: 700;
             margin-bottom: 10px;
         }
+
         .news-title {
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 12px;
         }
+
         .read-more {
             margin-top: 16px;
             color: #001f5b;
             font-weight: 600;
             display: inline-block;
+            font-size: 0.85rem;
         }
 
-        /* doc center */
+        /* Document Center Grid */
         .doc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
             gap: 24px;
         }
+
         .doc-card {
             text-align: center;
-            padding: 28px 12px;
+            padding: 28px 16px;
         }
+
         .doc-card i {
             font-size: 2.2rem;
             color: #001f5b;
             margin-bottom: 15px;
         }
 
-        /* achievements */
+        .doc-card h4 {
+            margin-bottom: 12px;
+        }
+
+        .btn-small {
+            background: #001f5b;
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        .btn-small:hover {
+            background: #d62828;
+        }
+
+        /* Achievements Grid */
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 28px;
         }
+
         .achievement-card {
             padding: 28px 20px;
             text-align: center;
         }
 
-        /* gallery grid */
+        .achievement-card i {
+            font-size: 2.5rem;
+            color: #d62828;
+            margin-bottom: 15px;
+        }
+
+        /* Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 24px;
         }
+
         .gallery-card {
-            overflow: hidden;
             border-radius: 20px;
-            height: 180px;
+            height: 190px;
             background-size: cover;
             background-position: center;
             position: relative;
+            overflow: hidden;
         }
+
         .gallery-overlay {
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,31,91,0.6);
             width: 100%;
             height: 100%;
             display: flex;
@@ -415,50 +491,100 @@
             opacity: 0;
             transition: 0.2s;
         }
+
         .gallery-card:hover .gallery-overlay {
             opacity: 1;
         }
 
-        /* important links */
+        /* Important Links Grid */
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 20px;
         }
+
         .link-card {
-            padding: 20px;
+            padding: 22px 16px;
             text-align: center;
+            border: 1px solid #edf2f7;
         }
 
-        /* footer */
+        .link-card i {
+            font-size: 1.8rem;
+            color: #001f5b;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
         .footer {
             background: #001f5b;
             color: #e2e8f0;
             margin-top: 60px;
         }
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            padding: 60px 0 40px;
+            padding: 55px 0 45px;
         }
+
         .footer a {
             color: #cbd5e1;
             display: block;
             margin-top: 12px;
+            font-size: 0.85rem;
         }
+
         .copyright {
             background: #001238;
             text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
+            padding: 18px;
+            font-size: 0.75rem;
         }
 
-        /* MOBILE styles */
-        @media (max-width: 1024px) {
-            .hero-grid {
+        /* Mobile Bottom Navigation (App Style) */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+            border-radius: 28px 28px 0 0;
+            justify-content: space-around;
+            padding: 12px 20px;
+            z-index: 1050;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .mobile-bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .mobile-bottom-nav i {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .three-col-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
+            }
+            .welcome-card {
+                min-height: auto;
+            }
+            .hero-image-card {
+                min-height: 320px;
             }
             .stats-grid {
                 grid-template-columns: repeat(2,1fr);
@@ -470,17 +596,16 @@
 
         @media (max-width: 768px) {
             .container {
-                padding-left: 20px;
-                padding-right: 20px;
+                padding: 0 18px;
             }
             .top-left, .top-right {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
-            .header-flex {
+            .header-content {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .nav-desktop {
+            .nav-menu-wrapper {
                 display: none;
             }
             .hamburger {
@@ -488,88 +613,57 @@
             }
             .sticky-nav {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px 20px;
+                justify-content: flex-end;
+                padding: 10px 20px;
             }
-            .nav-menu {
-                display: none;
-            }
-            .mobile-nav.open {
+            .mobile-nav-panel.open {
                 display: flex;
             }
-            .hero-section {
+            .hero-dashboard {
                 padding: 30px 0;
+            }
+            .section-header h2 {
+                font-size: 1.5rem;
             }
             .stats-grid {
                 gap: 16px;
-            }
-            .section-header h2 {
-                font-size: 1.6rem;
             }
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            /* bottom navigation style (mobile app-like bar) */
-            .mobile-bottom-nav {
-                display: flex;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: white;
-                box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-                border-radius: 24px 24px 0 0;
-                justify-content: space-around;
-                padding: 12px 16px;
-                z-index: 1050;
-                backdrop-filter: blur(10px);
-                border-top: 1px solid rgba(0,0,0,0.05);
-            }
-            .mobile-bottom-nav a {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                font-size: 0.7rem;
-                color: #4a5568;
-                font-weight: 500;
-            }
-            .mobile-bottom-nav i {
-                font-size: 1.4rem;
-                margin-bottom: 4px;
-            }
             body {
                 padding-bottom: 70px;
             }
-            .right-quick-cards .quick-card-item {
-                padding: 12px 16px;
+            .mobile-bottom-nav {
+                display: flex;
             }
-            .left-hero-card h2 {
-                font-size: 1.5rem;
+            .quick-card {
+                padding: 14px 18px;
             }
         }
 
         @media (min-width: 769px) {
             .mobile-bottom-nav {
-                display: none;
+                display: none !important;
             }
         }
 
-        /* image placeholder helpers */
-        .bg-img-1 { background-image: url('https://placehold.co/800x500/334155/f8fafc?text=Railway+Unity'); }
-        .bg-img-2 { background-image: url('https://placehold.co/600x400/1e293b/ffffff?text=Event'); }
-        .gallery-img1 { background-image: url('https://placehold.co/400x300/2c3e66/white?text=Railway+Meet'); }
-        .gallery-img2 { background-image: url('https://placehold.co/400x300/b91c1c/white?text=Union+Event'); }
-        .gallery-img3 { background-image: url('https://placehold.co/400x300/0f3b5f/white?text=Workers'); }
-        .gallery-img4 { background-image: url('https://placehold.co/400x300/7f1a1a/white?text=Inauguration'); }
-        .video-thumb { background-image: url('https://placehold.co/400x300/001f5b/white?text=Watch+Video'); }
+        /* Image backgrounds */
+        .bg-news1 { background-image: url('https://placehold.co/600x400/2d3748/ffffff?text=Leave+Rules'); }
+        .bg-news2 { background-image: url('https://placehold.co/600x400/b91c1c/ffffff?text=Medical+Rules'); }
+        .bg-news3 { background-image: url('https://placehold.co/600x400/0f3b5f/ffffff?text=AGM+Meeting'); }
+        .bg-news4 { background-image: url('https://placehold.co/600x400/1f3a5f/ffffff?text=DA+Revision'); }
+        .gallery1 { background-image: url('https://placehold.co/400x300/2c3e66/ffffff?text=Union+Meet'); }
+        .gallery2 { background-image: url('https://placehold.co/400x300/7f1a1a/ffffff?text=Railway+Event'); }
+        .gallery3 { background-image: url('https://placehold.co/400x300/0f3b5f/ffffff?text=Employee+Program'); }
+        .gallery4 { background-image: url('https://placehold.co/400x300/001f5b/ffffff?text=Video+Gallery'); }
     </style>
 </head>
 <body>
 
-<!-- TOP INFO BAR -->
-<div class="top-bar">
+<!-- TOP INFO BAR - EXACTLY as described -->
+<div class="top-info-bar">
     <div class="container">
         <div class="top-left"><span>Unity • Solidarity • Strength</span></div>
         <div class="top-right">
@@ -585,25 +679,40 @@
     </div>
 </div>
 
-<!-- MAIN HEADER -->
+<!-- MAIN HEADER with Railway Banner -->
 <div class="main-header">
-    <div class="container header-flex">
-        <div class="logo-area">
-            <div class="union-icon"><i class="fas fa-train"></i></div>
-            <div class="title-text">
+    <div class="container header-content">
+        <div class="logo-section">
+            <div class="logo-icon"><i class="fas fa-train"></i></div>
+            <div class="union-title">
                 <h1>NF Railway Employee Union</h1>
                 <p>Serving Railway Employees with Dedication</p>
             </div>
         </div>
-        <div class="railway-banner">
+        <div class="railway-badge">
             <i class="fas fa-chalkboard-user"></i> <span>Indian Railways | NF Region</span>
         </div>
     </div>
 </div>
 
-<!-- STICKY NAVIGATION (DESKTOP + MOBILE HAMBURGER) -->
+<!-- STICKY NAVIGATION with Hamburger -->
 <div class="sticky-nav">
-    <div class="container nav-desktop">
+    <div class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></div>
+    <div class="mobile-nav-panel" id="mobileNavPanel">
+        <a href="#">Home</a>
+        <a href="#">About Union</a>
+        <a href="#">News & Bulletins</a>
+        <a href="#">Circulars & PDFs</a>
+        <a href="#">Gallery</a>
+        <a href="#">Videos</a>
+        <a href="#">Achievements</a>
+        <a href="#">Important Links</a>
+        <a href="#">Contact Us</a>
+    </div>
+</div>
+
+<div class="nav-menu-wrapper">
+    <div class="container">
         <ul class="nav-menu">
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#">About Union</a></li>
@@ -616,55 +725,54 @@
             <li><a href="#">Contact Us</a></li>
         </ul>
     </div>
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <div class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></div>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#">Home</a><a href="#">About Union</a><a href="#">News & Bulletins</a><a href="#">Circulars & PDFs</a><a href="#">Gallery</a><a href="#">Videos</a><a href="#">Achievements</a><a href="#">Important Links</a><a href="#">Contact Us</a>
-    </div>
 </div>
 
-<!-- HERO DASHBOARD SECTION -->
-<section class="hero-section">
-    <div class="container hero-grid">
-        <div class="left-hero-card">
+<!-- HERO DASHBOARD SECTION - 3 Column Layout matching image structure -->
+<section class="hero-dashboard">
+    <div class="container three-col-grid">
+        <!-- LEFT PANEL: Welcome Card with CTA -->
+        <div class="welcome-card">
             <h2>Welcome to NF Railway Employee Union</h2>
-            <p>Empowering railway workers since 1965. Protecting rights, enhancing welfare, and building a stronger future for all NF Railway employees.</p>
+            <p>We protect your rights, support your welfare and build a stronger tomorrow. Working for Railway Employees, Always and Forever.</p>
             <a href="#" class="btn-red"><i class="fas fa-file-alt"></i> Latest Circulars</a>
         </div>
-        <div class="center-hero bg-img-1">
-            <div class="center-overlay">Together for Railway Employees</div>
+
+        <!-- CENTER PANEL: Hero Image / Slider Style -->
+        <div class="hero-image-card">
+            <div class="image-overlay-text">Together for Railway Employees</div>
         </div>
-        <div class="right-quick-cards">
-            <div class="quick-card-item"><i class="fas fa-file-pdf"></i><span>Circulars</span><i class="fas fa-chevron-right"></i></div>
-            <div class="quick-card-item"><i class="fas fa-download"></i><span>PDFs</span><i class="fas fa-chevron-right"></i></div>
-            <div class="quick-card-item"><i class="fas fa-newspaper"></i><span>News Bulletins</span><i class="fas fa-chevron-right"></i></div>
-            <div class="quick-card-item"><i class="fas fa-images"></i><span>Photo Gallery</span><i class="fas fa-chevron-right"></i></div>
-            <div class="quick-card-item"><i class="fas fa-video"></i><span>Videos</span><i class="fas fa-chevron-right"></i></div>
-            <div class="quick-card-item"><i class="fas fa-link"></i><span>Important Railway Links</span><i class="fas fa-chevron-right"></i></div>
+
+        <!-- RIGHT PANEL: Quick Access Vertical Dashboard Cards -->
+        <div class="quick-access-stack">
+            <div class="quick-card"><i class="fas fa-file-pdf"></i><span>Circulars / Orders</span><i class="fas fa-chevron-right"></i></div>
+            <div class="quick-card"><i class="fas fa-download"></i><span>Download PDFs</span><i class="fas fa-chevron-right"></i></div>
+            <div class="quick-card"><i class="fas fa-newspaper"></i><span>News Bulletins</span><i class="fas fa-chevron-right"></i></div>
+            <div class="quick-card"><i class="fas fa-images"></i><span>Photo Gallery</span><i class="fas fa-chevron-right"></i></div>
+            <div class="quick-card"><i class="fas fa-video"></i><span>Watch Videos</span><i class="fas fa-chevron-right"></i></div>
+            <div class="quick-card"><i class="fas fa-link"></i><span>Important Railway Links</span><i class="fas fa-chevron-right"></i></div>
         </div>
     </div>
 </section>
 
-<!-- STATS COUNTER -->
+<!-- STATS COUNTER SECTION - 4 cards exactly -->
 <section class="stats-section">
     <div class="container stats-grid">
-        <div class="stat-card"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-number">25,000+</div><div class="stat-label">Members</div></div>
+        <div class="stat-card"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-number">25,000+</div><div class="stat-label">Members Growing Stronger</div></div>
         <div class="stat-card"><div class="stat-icon"><i class="fas fa-file-alt"></i></div><div class="stat-number">1,250+</div><div class="stat-label">Circulars / PDFs</div></div>
         <div class="stat-card"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-number">120+</div><div class="stat-label">Achievements</div></div>
-        <div class="stat-card"><div class="stat-icon"><i class="fas fa-calendar-alt"></i></div><div class="stat-number">30+</div><div class="stat-label">Events/Year</div></div>
+        <div class="stat-card"><div class="stat-icon"><i class="fas fa-calendar-alt"></i></div><div class="stat-number">30+</div><div class="stat-label">Events Every Year</div></div>
     </div>
 </section>
 
-<!-- LATEST NEWS & BULLETINS -->
+<!-- LATEST NEWS & BULLETINS SECTION - Grid News Cards -->
 <section class="stats-section">
     <div class="container">
         <div class="section-header"><h2>Latest News & Bulletins</h2></div>
         <div class="news-grid">
-            <div class="news-card"><div class="news-img" style="background-image: url('https://placehold.co/600x400/2d3748/f8fafc?text=Leave+Rules'); background-size:cover;"></div><div class="news-content"><div class="news-date">17 MAY 2026</div><div class="news-title">Revision of Leave Rules – Important Update</div><p>Railway board issues new leave entitlements effective from May 2026...</p><a href="#" class="read-more">Read More →</a></div></div>
-            <div class="news-card"><div class="news-img" style="background-image: url('https://placehold.co/600x400/b91c1c/f8fafc?text=Medical'); background-size:cover;"></div><div class="news-content"><div class="news-date">15 MAY 2026</div><div class="news-title">New Medical Reimbursement Rules 2026</div><p>Updated healthcare benefits for NF railway employees & family...</p><a href="#" class="read-more">Read More →</a></div></div>
-            <div class="news-card"><div class="news-img" style="background-image: url('https://placehold.co/600x400/0f3b5f/f8fafc?text=AGM'); background-size:cover;"></div><div class="news-content"><div class="news-date">10 MAY 2026</div><div class="news-title">NFRFU Annual General Meeting 2026</div><p>All members requested to attend AGM on 5th June. Important agenda...</p><a href="#" class="read-more">Read More →</a></div></div>
-            <div class="news-card"><div class="news-img" style="background-image: url('https://placehold.co/600x400/1f3a5f/f8fafc?text=DA'); background-size:cover;"></div><div class="news-content"><div class="news-date">10 MAY 2026</div><div class="news-title">Good News! DA Revised from April 2026</div><p>Dearness Allowance hiked by 4% effective April 2026...</p><a href="#" class="read-more">Read More →</a></div></div>
+            <div class="news-card"><div class="news-img bg-news1"></div><div class="news-content"><div class="news-date">17 MAY 2026</div><div class="news-title">Revision of Leave Rules – Important Update</div><p>The leave rules have been revised with effect from 17th May 2026...</p><a href="#" class="read-more">Read More →</a></div></div>
+            <div class="news-card"><div class="news-img bg-news2"></div><div class="news-content"><div class="news-date">15 MAY 2026</div><div class="news-title">New Medical Reimbursement Rules 2026</div><p>Medical reimbursement rules updated. Check details now...</p><a href="#" class="read-more">Read More →</a></div></div>
+            <div class="news-card"><div class="news-img bg-news3"></div><div class="news-content"><div class="news-date">10 MAY 2026</div><div class="news-title">NFRFU Annual General Meeting 2026</div><p>All members are requested to attend the Annual General Meeting...</p><a href="#" class="read-more">Read More →</a></div></div>
+            <div class="news-card"><div class="news-img bg-news4"></div><div class="news-content"><div class="news-date">10 MAY 2026</div><div class="news-title">Good News! DA Revised from April 2026</div><p>Dear members, DA has been revised effective April 2026...</p><a href="#" class="read-more">Read More →</a></div></div>
         </div>
     </div>
 </section>
@@ -674,12 +782,12 @@
     <div class="container">
         <div class="section-header"><h2>PDF & Circular Center</h2></div>
         <div class="doc-grid">
-            <div class="doc-card"><i class="fas fa-chart-line"></i><h4>Promotions</h4><button class="btn-red" style="margin-top:12px; padding:8px 16px; font-size:12px;">View</button></div>
-            <div class="doc-card"><i class="fas fa-exchange-alt"></i><h4>Transfers</h4><button class="btn-red" style="margin-top:12px; padding:8px 16px; font-size:12px;">View</button></div>
-            <div class="doc-card"><i class="fas fa-pension"></i><h4>Pension</h4><button class="btn-red" style="margin-top:12px; padding:8px 16px; font-size:12px;">View</button></div>
-            <div class="doc-card"><i class="fas fa-hard-hat"></i><h4>Safety</h4><button class="btn-red" style="margin-top:12px; padding:8px 16px; font-size:12px;">View</button></div>
-            <div class="doc-card"><i class="fas fa-bullhorn"></i><h4>Circulars</h4><button class="btn-red" style="margin-top:12px; padding:8px 16px; font-size:12px;">Access</button></div>
-            <div class="doc-card"><i class="fas fa-gavel"></i><h4>Orders</h4><button class="btn-red" style="margin-top:12px; padding:8px 16px; font-size:12px;">Access</button></div>
+            <div class="doc-card"><i class="fas fa-chart-line"></i><h4>Promotions</h4><a href="#" class="btn-small">View Circulars</a></div>
+            <div class="doc-card"><i class="fas fa-exchange-alt"></i><h4>Transfers</h4><a href="#" class="btn-small">View Orders</a></div>
+            <div class="doc-card"><i class="fas fa-pension"></i><h4>Pension</h4><a href="#" class="btn-small">Get Details</a></div>
+            <div class="doc-card"><i class="fas fa-hard-hat"></i><h4>Safety</h4><a href="#" class="btn-small">Guidelines</a></div>
+            <div class="doc-card"><i class="fas fa-bullhorn"></i><h4>Circulars</h4><a href="#" class="btn-small">All Circulars</a></div>
+            <div class="doc-card"><i class="fas fa-gavel"></i><h4>Orders</h4><a href="#" class="btn-small">Govt. Orders</a></div>
         </div>
     </div>
 </section>
@@ -687,26 +795,27 @@
 <!-- ACHIEVEMENTS SECTION -->
 <section class="stats-section">
     <div class="container">
-        <div class="section-header"><h2>Union Achievements</h2></div>
+        <div class="section-header"><h2>Union Achievements & Milestones</h2></div>
         <div class="achievements-grid">
-            <div class="achievement-card"><i class="fas fa-award" style="font-size:2.5rem; color:#d62828;"></i><h3>Best Union Award</h3><p>Indian Railways Excellence 2024</p></div>
-            <div class="achievement-card"><i class="fas fa-hand-holding-heart" style="font-size:2.5rem; color:#d62828;"></i><h3>Employee Welfare</h3><p>Health camps & education programs</p></div>
-            <div class="achievement-card"><i class="fas fa-people-arrows" style="font-size:2.5rem; color:#d62828;"></i><h3>Union Activities</h3><p>500+ grievances resolved</p></div>
-            <div class="achievement-card"><i class="fas fa-chalkboard" style="font-size:2.5rem; color:#d62828;"></i><h3>Events & Seminars</h3><p>Skill development initiatives</p></div>
+            <div class="achievement-card"><i class="fas fa-award"></i><h3>Awards & Recognition</h3><p>Best Union Award 2024 by Railway Board</p></div>
+            <div class="achievement-card"><i class="fas fa-hand-holding-heart"></i><h3>Employee Welfare</h3><p>Health camps & scholarship programs</p></div>
+            <div class="achievement-card"><i class="fas fa-people-arrows"></i><h3>Union Activities</h3><p>5000+ grievances resolved</p></div>
+            <div class="achievement-card"><i class="fas fa-chalkboard"></i><h3>Events & Seminars</h3><p>30+ skill development workshops</p></div>
         </div>
     </div>
 </section>
 
-<!-- PHOTO & VIDEO GALLERY -->
+<!-- PHOTO & VIDEO GALLERY SECTION -->
 <section class="stats-section">
     <div class="container">
         <div class="section-header"><h2>Photo & Video Gallery</h2></div>
         <div class="gallery-grid">
-            <div class="gallery-card gallery-img1"><div class="gallery-overlay"><i class="fas fa-search-plus" style="color:white; font-size:28px;"></i></div></div>
-            <div class="gallery-card gallery-img2"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
-            <div class="gallery-card gallery-img3"><div class="gallery-overlay"><i class="fas fa-play-circle"></i></div></div>
-            <div class="gallery-card video-thumb"><div class="gallery-overlay"><i class="fas fa-play-circle fa-2x"></i></div></div>
+            <div class="gallery-card gallery1"><div class="gallery-overlay"><i class="fas fa-search-plus" style="color:white; font-size:24px;"></i></div></div>
+            <div class="gallery-card gallery2"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+            <div class="gallery-card gallery3"><div class="gallery-overlay"><i class="fas fa-play-circle fa-2x"></i></div></div>
+            <div class="gallery-card gallery4"><div class="gallery-overlay"><i class="fas fa-play-circle fa-2x"></i></div></div>
         </div>
+        <div style="text-align: right; margin-top: 16px;"><a href="#" style="color:#001f5b; font-weight:600;">View All Gallery →</a></div>
     </div>
 </section>
 
@@ -725,31 +834,31 @@
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER Full Width -->
 <footer class="footer">
     <div class="container footer-grid">
-        <div><i class="fas fa-train" style="font-size: 28px; margin-bottom: 12px; display:inline-block;"></i><h3 style="color:white;">NF Railway Union</h3><p style="margin-top:12px;">United for railway employees' rights, welfare, and progress since 1965.</p></div>
-        <div><h4>Quick Links</h4><a href="#">Home</a><a href="#">About Union</a><a href="#">News & Bulletins</a><a href="#">Achievements</a></div>
-        <div><h4>Railway Links</h4><a href="#">IRCTC</a><a href="#">Railway Board</a><a href="#">HRMS</a><a href="#">Pension Portal</a></div>
-        <div><h4>Contact</h4><p><i class="fas fa-map-marker-alt"></i> NF Railway HQ, Maligaon, Guwahati</p><p><i class="fas fa-phone"></i> 1800-123-RAIL</p><p><i class="fas fa-envelope"></i> union@nfrailway.org</p><div class="social-icons" style="margin-top:12px;"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-youtube"></i></a></div></div>
+        <div><i class="fas fa-train" style="font-size: 28px; margin-bottom: 12px; display:inline-block;"></i><h3 style="color:white;">NF Railway Union</h3><p style="margin-top:12px;">United for railway employees' rights, welfare, and progress.</p></div>
+        <div><h4>Quick Links</h4><a href="#">Home</a><a href="#">About Union</a><a href="#">News & Bulletins</a><a href="#">Achievements</a><a href="#">Gallery</a></div>
+        <div><h4>Railway Links</h4><a href="#">IRCTC</a><a href="#">Railway Board</a><a href="#">HRMS</a><a href="#">Pension Portal</a><a href="#">Recruitment</a></div>
+        <div><h4>Contact Info</h4><p><i class="fas fa-map-marker-alt"></i> NF Railway HQ, Maligaon, Guwahati</p><p><i class="fas fa-phone"></i> 1800-123-RAIL</p><p><i class="fas fa-envelope"></i> union@nfrailway.org</p><div class="social-icons" style="margin-top:12px;"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-youtube"></i></a></div></div>
     </div>
     <div class="copyright">© 2026 NF Railway Employee Union. All Rights Reserved.</div>
 </footer>
 
-<!-- mobile bottom navigation -->
+<!-- Mobile Bottom Navigation (App-like) -->
 <div class="mobile-bottom-nav">
     <a href="#"><i class="fas fa-home"></i><span>Home</span></a>
     <a href="#"><i class="fas fa-newspaper"></i><span>News</span></a>
     <a href="#"><i class="fas fa-file-pdf"></i><span>Circulars</span></a>
     <a href="#"><i class="fas fa-images"></i><span>Gallery</span></a>
-    <a href="#"><i class="fas fa-user"></i><span>Union</span></a>
+    <a href="#"><i class="fas fa-phone-alt"></i><span>Contact</span></a>
 </div>
 
 <script>
     const hamburger = document.getElementById('hamburgerBtn');
-    const mobileNav = document.getElementById('mobileNav');
+    const mobilePanel = document.getElementById('mobileNavPanel');
     hamburger.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
+        mobilePanel.classList.toggle('open');
     });
 </script>
 </body>
