@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NF Railway Employee Union</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0d2149;
+            --navy-dark: #0a1936;
+            --red: #cc1b21;
+            --bg-color: #f4f6f9;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- DESKTOP TOP BAR --- */
+        .top-bar {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-left: 10px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 14px;
+        }
+        
+        .social-icons a:hover {
+            color: var(--red);
+        }
+
+        /* --- DESKTOP HEADER --- */
+        .main-header {
+            background-color: var(--white);
+            height: 110px;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-left: 20px;
+            flex: 1;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-size: 24px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .logo-text h1 .blue { color: var(--navy); }
+        .logo-text h1 .red { color: var(--red); }
+        
+        .logo-text p {
+            font-size: 13px;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .header-banner {
+            flex: 1.5;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1541888052101-1dfb003a7431?auto=format&fit=crop&w=1200&q=80') center/cover;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        /* --- DESKTOP NAVIGATION --- */
+        .navbar {
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 16px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy-dark);
+            text-transform: uppercase;
+        }
+
+        .nav-links li a.active {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        .nav-links li a:hover:not(.active) {
+            color: var(--red);
+        }
+        
+        .search-icon {
+            padding: 16px 20px;
+            color: var(--navy-dark);
+            cursor: pointer;
+        }
+
+        /* --- TICKER SECTION --- */
+        .ticker-section {
+            background-color: var(--white);
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .ticker-wrapper {
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .ticker-title {
+            background-color: var(--red);
+            color: var(--white);
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .ticker-content {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            padding: 0 15px;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .ticker-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .ticker-btn {
+            background-color: var(--navy);
+            color: var(--white);
+            height: 100%;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            margin-bottom: 30px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 3fr 5fr 3fr;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .hero-left {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-left h2 {
+            font-size: 32px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-left p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .btn-red {
+            background-color: var(--red);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .hero-center {
+            background: url('https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=800&q=80') center/cover;
+            position: relative;
+        }
+
+        .hero-center-tag {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-center-tag h3 { color: var(--navy); font-size: 16px; font-weight: 700; }
+        .hero-center-tag p { color: var(--text-gray); font-size: 11px; }
+
+        .hero-right {
+            background-color: var(--bg-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-right h3 {
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        .quick-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .quick-link-item {
+            background: var(--white);
+            padding: 12px 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
+        }
+
+        .quick-link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: var(--navy);
+        }
+
+        .quick-link-item .icon-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .quick-link-item .icon-box i {
+            color: var(--navy);
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .quick-link-item .fa-chevron-right {
+            color: #ccc;
+            font-size: 12px;
+        }
+
+        /* --- STATS SECTION --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 25px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .icon-blue { background: #eef2fa; color: var(--navy); }
+        .icon-yellow { background: #fff5e6; color: #f59e0b; }
+
+        .stat-info h3 {
+            font-size: 24px;
+            color: var(--navy);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .stat-info p.title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 4px 0 2px;
+        }
+
+        .stat-info p.desc {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* --- SECTION HEADERS --- */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            color: var(--navy);
+        }
+
+        .view-all-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .view-all-link i { margin-left: 5px; }
+
+        /* --- NEWS SECTION --- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-img-box {
+            position: relative;
+            height: 140px;
+        }
+
+        .news-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .date-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            background: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            line-height: 1.1;
+        }
+        
+        .date-badge span.day { display: block; font-size: 16px; font-weight: 700; color: var(--text-dark); }
+        .date-badge span.month { display: block; font-size: 10px; font-weight: 600; color: var(--text-gray); text-transform: uppercase; }
+
+        .news-content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-tag {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .tag-circular { background: #fee2e2; color: #ef4444; }
+        .tag-notice { background: #dcfce7; color: #22c55e; }
+        .tag-news { background: #ffedd5; color: #f97316; }
+        .tag-event { background: #e0e7ff; color: #6366f1; }
+        .tag-update { background: #dbeafe; color: #3b82f6; }
+
+        .news-card h4 {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .news-card p {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            margin-top: auto;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- PHOTO GALLERY SECTION --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- MOBILE SPECIFIC ELEMENTS (HIDDEN ON DESKTOP) --- */
+        .mobile-header, .mobile-bottom-nav, .mobile-hero, .mobile-news-list {
+            display: none;
+        }
+
+        /* =========================================
+           RESPONSIVE / MOBILE VIEW
+        ========================================= */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr 1fr; height: auto; }
+            .hero-right { grid-column: span 2; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .news-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .header-banner { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            /* Hide Desktop Elements */
+            .top-bar, .main-header, .navbar, .ticker-section, .hero-section { display: none; }
+            body { background-color: #f2f2f6; padding-bottom: 70px; }
+
+            /* Mobile Header */
+            .mobile-header {
+                display: flex;
+                background-color: var(--navy-dark);
+                height: 60px;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 20px;
+                color: var(--white);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+            }
+            .mobile-header-logo { display: flex; align-items: center; gap: 10px; }
+            .mobile-header-logo img { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--red); background: #fff;}
+            .mobile-header-logo div { line-height: 1.1; }
+            .mobile-header-logo h1 { font-size: 14px; font-weight: 700; color: var(--white);}
+            .mobile-header-logo p { font-size: 9px; color: #ccc;}
+            .mobile-header i { font-size: 20px; }
+
+            /* Mobile Hero */
+            .mobile-hero {
+                display: block;
+                height: 220px;
+                background: url('https://images.unsplash.com/photo-1541888052101-1dfb003a7431?auto=format&fit=crop&w=600&q=80') center/cover;
+                position: relative;
+            }
+            .mobile-hero-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 60%, transparent 100%);
+                padding: 30px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+            }
+            .mobile-hero h2 { color: var(--navy); font-size: 24px; margin-bottom: 5px; }
+            .mobile-hero p { color: var(--text-dark); font-size: 13px; margin-bottom: 20px; font-weight: 500;}
+            
+            /* Mobile Ticker */
+            .mobile-ticker {
+                background: var(--navy);
+                color: var(--white);
+                display: flex;
+                padding: 12px 20px;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 13px;
+            }
+            .mobile-ticker-left { display: flex; flex-direction: column; gap: 5px; }
+            .mobile-ticker-title { font-weight: 700; }
+            .mobile-ticker-text { font-size: 12px; color: #ccc; display: flex; align-items: center; gap: 5px;}
+            .mobile-ticker-view { font-weight: 600; font-size: 12px; }
+
+            /* Mobile Quick Access */
+            .mobile-qa-section {
+                padding: 25px 20px;
+            }
+            .mobile-qa-title { font-size: 18px; color: var(--navy); margin-bottom: 15px; font-weight: 700;}
+            .mobile-qa-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+            .mobile-qa-card {
+                background: var(--white);
+                border-radius: 12px;
+                padding: 20px 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 12px;
+                box-shadow: var(--shadow-sm);
+            }
+            .mobile-qa-icon {
+                width: 45px; height: 45px;
+                border-radius: 10px;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 20px;
+            }
+            .icon-circ { background: #e0f2fe; color: #0284c7; }
+            .icon-pdf { background: #fee2e2; color: #dc2626; }
+            .icon-link { background: #e0e7ff; color: #4f46e5; }
+            .icon-gal { background: #dcfce7; color: #16a34a; }
+            .icon-vid { background: #f3e8ff; color: #9333ea; }
+            .icon-con { background: #ffedd5; color: #ea580c; }
+            
+            .mobile-qa-text { font-size: 11px; font-weight: 600; color: var(--text-dark); }
+
+            /* Mobile News List */
+            .desktop-news-section { display: none; }
+            .mobile-news-section { padding: 0 20px 30px; }
+            .mobile-news-list { display: flex; flex-direction: column; gap: 15px; }
+            
+            .mobile-news-item {
+                background: var(--white);
+                border-radius: 12px;
+                padding: 15px;
+                display: flex;
+                gap: 15px;
+                box-shadow: var(--shadow-sm);
+            }
+            .mobile-news-date {
+                text-align: center;
+                min-width: 45px;
+            }
+            .mobile-news-date .day { display: block; font-size: 18px; font-weight: 700; color: var(--text-dark); }
+            .mobile-news-date .month { display: block; font-size: 11px; font-weight: 600; color: var(--text-gray); }
+            
+            .mobile-news-content { flex: 1; }
+            .mobile-news-content h4 { font-size: 14px; margin: 5px 0; color: var(--navy); }
+            .mobile-news-content p { font-size: 12px; color: var(--text-gray); margin-bottom: 10px; line-height: 1.4;}
+            
+            .stats-grid { display: none; } /* Hidden on mobile in the mockup */
+
+            /* Mobile Bottom Nav */
+            .mobile-bottom-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: var(--navy-dark);
+                height: 70px;
+                justify-content: space-around;
+                align-items: center;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                z-index: 1000;
+            }
+            .bottom-nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                color: #8fa3c4;
+                font-size: 10px;
+                font-weight: 500;
+            }
+            .bottom-nav-item.active { color: var(--red); }
+            .bottom-nav-item i { font-size: 20px; }
+            .bottom-nav-item.active i { color: var(--red); }
+            .bottom-nav-item:not(.active) i { color: #fff; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div>Unity • Solidarity • Strength</div>
+            <div class="top-bar-right">
+                <span>Email: info@nfreu.org</span>
+                <span>|</span>
+                <span>Helpline: 0361-1234567</span>
+                <span>|</span>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo-img">
+                    <i class="fa-solid fa-train-subway"></i>
+                </div>
+                <div class="logo-text">
+                    <h1><span class="blue">NF RAILWAY</span><br><span class="red">EMPLOYEE UNION</span></h1>
+                    <p>Stronger Together, For a Better Tomorrow</p>
+                </div>
+            </div>
+            <div class="header-banner"></div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#" class="active">HOME</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">NEWS & BULLETINS <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left:3px;"></i></a></li>
+                <li><a href="#">CIRCULARS / PDFS</a></li>
+                <li><a href="#">ACHIEVEMENTS</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="#">IMPORTANT LINKS</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container ticker-section">
+        <div class="ticker-wrapper">
+            <div class="ticker-title">LATEST UPDATES</div>
+            <div class="ticker-content">
+                <div class="ticker-text">
+                    • Dear Members, New Medical Reimbursement Rules have been updated. Check Circulars section. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    • NF Railway Employee Union Annual General Meeting on 20th May 2026.
+                </div>
+            </div>
+            <a href="#" class="ticker-btn">View All</a>
+        </div>
+    </div>
+
+    <section class="container hero-section">
+        <div class="hero-grid">
+            <div class="hero-left">
+                <h2>Working for<br>Railway Employees,<br>Always and Forever</h2>
+                <p>We protect your rights, support your welfare and build a stronger tomorrow.</p>
+                <div>
+                    <button class="btn-red">KNOW MORE ABOUT US</button>
+                </div>
+            </div>
+            <div class="hero-center">
+                <div class="hero-center-tag">
+                    <h3>NF RAILWAY EMPLOYEE UNION</h3>
+                    <p>Unity is Our Strength</p>
+                </div>
+            </div>
+            <div class="hero-right">
+                <h3>Quick Access</h3>
+                <div class="quick-links-list">
+                    <a href="#" class="quick-link-item">
+                        <div class="icon-box"><i class="fa-solid fa-file-lines"></i> Latest Circulars / Orders</div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="quick-link-item">
+                        <div class="icon-box"><i class="fa-solid fa-file-pdf"></i> Download PDFs</div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="quick-link-item">
+                        <div class="icon-box"><i class="fa-solid fa-link"></i> Important Railway Links</div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="quick-link-item">
+                        <div class="icon-box"><i class="fa-solid fa-image"></i> Photo Gallery</div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="quick-link-item">
+                        <div class="icon-box"><i class="fa-solid fa-circle-play"></i> Watch Videos</div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="quick-link-item">
+                        <div class="icon-box"><i class="fa-solid fa-phone-volume"></i> Contact Us</div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon icon-blue"><i class="fa-solid fa-user-group"></i></div>
+                <div class="stat-info">
+                    <h3>25,000+</h3>
+                    <p class="title">Members</p>
+                    <p class="desc">Growing Stronger Together</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-blue"><i class="fa-solid fa-file-invoice"></i></div>
+                <div class="stat-info">
+                    <h3>1,250+</h3>
+                    <p class="title">Circulars / PDFs</p>
+                    <p class="desc">All in One Place</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-yellow"><i class="fa-solid fa-trophy"></i></div>
+                <div class="stat-info">
+                    <h3>120+</h3>
+                    <p class="title">Achievements</p>
+                    <p class="desc">Milestones of Our Union</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-blue"><i class="fa-solid fa-calendar-days"></i></div>
+                <div class="stat-info">
+                    <h3>30+</h3>
+                    <p class="title">Events</p>
+                    <p class="desc">Every Year</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container desktop-news-section">
+        <div class="section-header">
+            <h2>Latest News & Bulletins</h2>
+            <a href="#" class="view-all-link">View All News <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80" alt="News">
+                    <div class="date-badge"><span class="day">17</span><span class="month">MAY</span></div>
+                </div>
+                <div class="news-content">
+                    <span class="news-tag tag-circular">Circular</span>
+                    <h4>Revision of Leave Rules – Important Update</h4>
+                    <p>The leave rules have been revised with effect from 17th May 2026...</p>
+                    <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=400&q=80" alt="News">
+                    <div class="date-badge"><span class="day">15</span><span class="month">MAY</span></div>
+                </div>
+                <div class="news-content">
+                    <span class="news-tag tag-notice">Notice</span>
+                    <h4>New Medical Reimbursement Rules 2026</h4>
+                    <p>Medical reimbursement rules updated. Check details now...</p>
+                    <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=400&q=80" alt="News">
+                    <div class="date-badge"><span class="day">12</span><span class="month">MAY</span></div>
+                </div>
+                <div class="news-content">
+                    <span class="news-tag tag-news">News</span>
+                    <h4>Important Safety Advisory for All Employees</h4>
+                    <p>Safety is our priority. Follow the guidelines and stay safe...</p>
+                    <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=400&q=80" alt="News">
+                    <div class="date-badge"><span class="day">10</span><span class="month">MAY</span></div>
+                </div>
+                <div class="news-content">
+                    <span class="news-tag tag-event">Event</span>
+                    <h4>NFREU Annual General Meeting 2026</h4>
+                    <p>All members are requested to attend the Annual General Meeting...</p>
+                    <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=400&q=80" alt="News">
+                    <div class="date-badge"><span class="day">08</span><span class="month">MAY</span></div>
+                </div>
+                <div class="news-content">
+                    <span class="news-tag tag-update">Update</span>
+                    <h4>Good News! DA Revised from April 2026</h4>
+                    <p>Dear members, DA has been revised effective April 2026...</p>
+                    <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container desktop-news-section">
+        <div class="section-header">
+            <h2>Photo Gallery</h2>
+            <a href="#" class="view-all-link">View All Gallery <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541888052101-1dfb003a7431?auto=format&fit=crop&w=400&q=80" alt="Gallery"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=400&q=80" alt="Gallery"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Gallery"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80" alt="Gallery"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=400&q=80" alt="Gallery"></div>
+        </div>
+    </section>
+
+
+    <header class="mobile-header">
+        <i class="fa-solid fa-bars"></i>
+        <div class="mobile-header-logo">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23cc1b21' stroke-width='5'/></svg>" alt="Logo">
+            <div>
+                <h1>NF RAILWAY</h1>
+                <p>EMPLOYEE UNION</p>
+            </div>
+        </div>
+        <i class="fa-regular fa-bell"></i>
+    </header>
+
+    <div class="mobile-hero">
+        <div class="mobile-hero-overlay">
+            <h2>Unity is Our Strength</h2>
+            <p>Together We Achieve More</p>
+            <button class="btn-red">Know More</button>
+        </div>
+    </div>
+
+    <div class="mobile-ticker">
+        <div class="mobile-ticker-left">
+            <span class="mobile-ticker-title">Latest Updates</span>
+            <span class="mobile-ticker-text">• Dear Members, New Medical Reimburseme... <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></span>
+        </div>
+        <span class="mobile-ticker-view">View All</span>
+    </div>
+
+    <section class="mobile-qa-section">
+        <h3 class="mobile-qa-title">Quick Access</h3>
+        <div class="mobile-qa-grid">
+            <div class="mobile-qa-card">
+                <div class="mobile-qa-icon icon-circ"><i class="fa-solid fa-file-lines"></i></div>
+                <span class="mobile-qa-text">Circulars / Orders</span>
+            </div>
+            <div class="mobile-qa-card">
+                <div class="mobile-qa-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                <span class="mobile-qa-text">PDFs</span>
+            </div>
+            <div class="mobile-qa-card">
+                <div class="mobile-qa-icon icon-link"><i class="fa-solid fa-link"></i></div>
+                <span class="mobile-qa-text">Important Links</span>
+            </div>
+            <div class="mobile-qa-card">
+                <div class="mobile-qa-icon icon-gal"><i class="fa-solid fa-image"></i></div>
+                <span class="mobile-qa-text">Gallery</span>
+            </div>
+            <div class="mobile-qa-card">
+                <div class="mobile-qa-icon icon-vid"><i class="fa-solid fa-circle-play"></i></div>
+                <span class="mobile-qa-text">Videos</span>
+            </div>
+            <div class="mobile-qa-card">
+                <div class="mobile-qa-icon icon-con"><i class="fa-solid fa-phone-volume"></i></div>
+                <span class="mobile-qa-text">Contact Us</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="mobile-news-section">
+        <div class="section-header">
+            <h2>Latest News & Bulletins</h2>
+            <a href="#" class="view-all-link">View All</a>
+        </div>
+        <div class="mobile-news-list">
+            <div class="mobile-news-item">
+                <div class="mobile-news-date">
+                    <span class="day">17</span>
+                    <span class="month">MAY</span>
+                </div>
+                <div class="mobile-news-content">
+                    <span class="news-tag tag-circular" style="margin-bottom: 5px;">Circular</span>
+                    <h4>Revision of Leave Rules – Important Update</h4>
+                    <p>The leave rules have been revised with effect from 17th May 2026...</p>
+                    <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="mobile-bottom-nav">
+        <div class="bottom-nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </div>
+        <div class="bottom-nav-item">
+            <i class="fa-regular fa-newspaper"></i>
+            <span>News</span>
+        </div>
+        <div class="bottom-nav-item">
+            <i class="fa-regular fa-file-pdf"></i>
+            <span>PDFs</span>
+        </div>
+        <div class="bottom-nav-item">
+            <i class="fa-regular fa-image"></i>
+            <span>Gallery</span>
+        </div>
+        <div class="bottom-nav-item">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <span>More</span>
+        </div>
+    </nav>
+
+</body>
+</html>
